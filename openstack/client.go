@@ -77,6 +77,7 @@ func Authenticate(client *gophercloud.ProviderClient, options gophercloud.AuthOp
 	case v20:
 		return v2auth(client, endpoint, options)
 	case v30:
+		client.TokenID = options.TokenID
 		return v3auth(client, endpoint, options)
 	default:
 		// The switch statement must be out of date from the versions list.
